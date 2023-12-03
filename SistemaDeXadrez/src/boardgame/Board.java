@@ -14,7 +14,7 @@ public class Board {
 	public Board(int rows, int columns) {
 		this.setRows(rows);
 		this.setColumns(columns);
-		this.pieces = new Piece[this.rows][this.columns];
+		this.pieces = new Piece[rows][columns];
 	}
 
 	public int getRows() {
@@ -31,5 +31,16 @@ public class Board {
 
 	public void setColumns(int columns) {
 		this.columns = columns;
+	}
+	
+	/*
+	 * methods section
+	 */
+	public Piece piece(int row, int column) {
+		return this.pieces[row][column];
+	}
+	
+	public Piece piece(Position position) {
+		return this.pieces[position.getRow()][position.getColumn()];
 	}
 }
