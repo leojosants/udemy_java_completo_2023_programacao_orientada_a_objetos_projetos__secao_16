@@ -11,8 +11,8 @@ public class Position {
 	 * constructors section
 	 */
 	public Position(int row, int column) {
-		this.row = row;
-		this.column = column;
+		this.setRow(row);
+		this.setColumn(column);
 	}
 
 	/*
