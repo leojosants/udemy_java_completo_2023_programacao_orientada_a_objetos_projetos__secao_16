@@ -1,23 +1,19 @@
+/* -------------------- packages section -------------------- */
 package boardgame;
 
 public class Position {
-	/*
-	 * attributes section
-	 */
+
+	/* -------------------- attributes section -------------------- */
 	private int row;
 	private int column;
 
-	/*
-	 * constructors section
-	 */
+	/* -------------------- constructors section -------------------- */
 	public Position(int row, int column) {
 		this.setRow(row);
 		this.setColumn(column);
 	}
 
-	/*
-	 * getters and setters section
-	 */
+	/* -------------------- getters and setters section -------------------- */
 	public int getRow() {
 		return this.row;
 	}
@@ -32,6 +28,12 @@ public class Position {
 
 	public void setColumn(int column) {
 		this.column = column;
+	}
+
+	/* -------------------- methods section -------------------- */
+	public void setValues(int row, int column) {
+		this.setRow(row);
+		this.setColumn(column);
 	}
 
 	@Override
