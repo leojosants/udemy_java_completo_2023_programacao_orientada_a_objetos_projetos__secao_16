@@ -1,8 +1,7 @@
-/*
- * packages section
- */
+/* -------------------- packages section -------------------- */
 package application;
 
+/* -------------------- imports section -------------------- */
 import java.util.InputMismatchException;
 /*
  * libraries section
@@ -15,9 +14,7 @@ import chess.ChessPiece;
 import chess.ChessPosition;
 
 public class Program {
-	/*
-	 * functions section
-	 */
+	/* -------------------- functions section -------------------- */
 	private static Scanner generateInstanceScanner() {
 		return new Scanner(System.in);
 	}
@@ -31,9 +28,7 @@ public class Program {
 		scanner.nextLine();
 	}
 	
-	/*
-	 * main method
-	 */
+	/* -------------------- main method -------------------- */
 	public static void main(String[] args) {
 
 		Scanner scanner = generateInstanceScanner();
@@ -43,13 +38,16 @@ public class Program {
 			try {
 				UI.clearScreen();
 				UI.printBoard(chess_match.getPieces());
+				
 				System.out.println();
-
 				System.out.print("Source: ");
 				ChessPosition source = UI.readChessPosition(scanner);
 
+				boolean[][] possible_moves = chess_match.possibleMoves(source);
+				UI.clearScreen();
+				UI.printBoard(chess_match.getPieces(), possible_moves);
+				
 				System.out.println();
-
 				System.out.print("Target: ");
 				ChessPosition target = UI.readChessPosition(scanner);
 
