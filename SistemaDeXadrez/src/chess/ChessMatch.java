@@ -1,5 +1,7 @@
+/* -------------------- packages section -------------------- */
 package chess;
 
+/* -------------------- imports section -------------------- */
 import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
@@ -7,22 +9,16 @@ import chess.pieces.King;
 import chess.pieces.Rook;
 
 public class ChessMatch {
-	/*
-	 * attributes section
-	 */
+	/* -------------------- attributes section -------------------- */
 	private Board board;
 
-	/*
-	 * constructors section
-	 */
+	/* -------------------- constructors section -------------------- */
 	public ChessMatch() {
 		this.board = new Board(8, 8);
 		this.initialSetup();
 	}
 
-	/*
-	 * methods section
-	 */
+	/* -------------------- methods section -------------------- */
 	public ChessPiece[][] getPieces() {
 		ChessPiece[][] matriz = new ChessPiece[this.board.getRows()][this.board.getColumns()];
 		for (int i = 0; i < this.board.getRows(); i++) {
@@ -51,6 +47,10 @@ public class ChessMatch {
 	private void validateSourcePosition(Position position) {
 		if (!this.board.theresIsAPiece(position)) {
 			throw new ChessException("There is no piece on source position");
+		}
+		
+		if(!this.board.piece(position).isThereAnyPossibleMove()) {
+			throw new ChessException("There is no possible moves for the chosen piece");
 		}
 	}
 

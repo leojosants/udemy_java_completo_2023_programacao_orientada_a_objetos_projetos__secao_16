@@ -1,17 +1,15 @@
+/* -------------------- packages section -------------------- */
 package chess;
 
+/* -------------------- imports section -------------------- */
 import boardgame.Board;
 import boardgame.Piece;
 
-public class ChessPiece extends Piece {
-	/*
-	 * attributes section
-	 */
+public abstract class ChessPiece extends Piece {
+	/* -------------------- attributes section -------------------- */
 	private Color color;
 
-	/*
-	 * constructors section
-	 */
+	/* -------------------- constructors section -------------------- */
 	public ChessPiece(Board board, Color color) {
 		super(board);
 		this.setColor(color);
