@@ -37,7 +37,7 @@ public class Program {
 		while (true) {
 			try {
 				UI.clearScreen();
-				UI.printBoard(chess_match.getPieces());
+				UI.printMatch(chess_match);
 				
 				System.out.println();
 				System.out.print("Source: ");
