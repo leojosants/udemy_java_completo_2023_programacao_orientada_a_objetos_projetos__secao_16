@@ -1,19 +1,20 @@
 /* -------------------- packages section -------------------- */
 package application;
 
-import java.util.Arrays;
 /* -------------------- imports section -------------------- */
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-
 import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
 
+/* -------------------- UI class -------------------- */
 public class UI {
+	
 	// special codes for color printing on the console
 	public static final String ANSI_RESET = "\u001B[0m";
 	public static final String ANSI_BLACK = "\u001B[30m";
@@ -45,7 +46,8 @@ public class UI {
 			char column = s.charAt(0);
 			int row = Integer.parseInt(s.substring(1));
 			return new ChessPosition(column, row);
-		} catch (RuntimeException e) {
+		} 
+		catch (RuntimeException e) {
 			throw new InputMismatchException("Error reading ChessPosition, valid values are from 'a1' to 'h8'");
 		}
 	}
@@ -56,10 +58,17 @@ public class UI {
 		printCapturedPieces(captured);
 		System.out.println();
 		System.out.printf("Turn: %d%n", chess_match.getTurn());
-		System.out.println("Waiting player: " + chess_match.getCurrentPlayer());
 		
-		if(chess_match.getCheck()) {
-			System.out.println("CHECK!");
+		if (!chess_match.getCheckMate()) {
+			System.out.println("Waiting player: " + chess_match.getCurrentPlayer());
+		
+			if(chess_match.getCheck()) {
+				System.out.println("CHECK!");
+			}
+		}
+		else {
+			System.out.println("CHECKMATE");
+			System.out.println("Winner: " + chess_match.getCurrentPlayer());
 		}
 	}
 

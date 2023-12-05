@@ -11,7 +11,9 @@ import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 
+/* -------------------- Program class -------------------- */
 public class Program {
+
 	/* -------------------- functions section -------------------- */
 	private static Scanner generateInstanceScanner() {
 		return new Scanner(System.in);
@@ -38,7 +40,7 @@ public class Program {
 		ChessMatch chess_match = new ChessMatch();
 		List<ChessPiece> captured = generateInstanceChessPieceList();
 
-		while (true) {
+		while (!chess_match.getCheckMate()) {
 			try {
 				UI.clearScreen();
 				UI.printMatch(chess_match, captured);
@@ -57,7 +59,7 @@ public class Program {
 
 				ChessPiece captured_piece = chess_match.performChessMovie(source, target);
 				
-				if(captured_piece != null) {
+				if (captured_piece != null) {
 					captured.add(captured_piece);
 				}
 			}
@@ -68,5 +70,8 @@ public class Program {
 				displayMessageInputMismatchException(scanner, e);
 			}
 		}
+		
+		UI.clearScreen();
+		UI.printMatch(chess_match, captured);
 	}
 }
