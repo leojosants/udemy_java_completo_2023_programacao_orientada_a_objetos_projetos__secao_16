@@ -2,12 +2,10 @@
 package application;
 
 /* -------------------- imports section -------------------- */
+import java.util.ArrayList;
 import java.util.InputMismatchException;
-/*
- * libraries section
- */
+import java.util.List;
 import java.util.Scanner;
-
 import chess.ChessException;
 import chess.ChessMatch;
 import chess.ChessPiece;
@@ -23,9 +21,14 @@ public class Program {
 		System.out.println(e.getMessage());
 		scanner.nextLine();
 	}
+
 	private static void displayMessageInputMismatchException(Scanner scanner, Throwable e) {
 		System.out.println(e.getMessage());
 		scanner.nextLine();
+	}
+	
+	private static List<ChessPiece> generateInstanceChessPieceList() {
+		return new ArrayList<>();
 	}
 	
 	/* -------------------- main method -------------------- */
@@ -33,11 +36,12 @@ public class Program {
 
 		Scanner scanner = generateInstanceScanner();
 		ChessMatch chess_match = new ChessMatch();
+		List<ChessPiece> captured = generateInstanceChessPieceList();
 
 		while (true) {
 			try {
 				UI.clearScreen();
-				UI.printMatch(chess_match);
+				UI.printMatch(chess_match, captured);
 				
 				System.out.println();
 				System.out.print("Source: ");
@@ -52,6 +56,10 @@ public class Program {
 				ChessPosition target = UI.readChessPosition(scanner);
 
 				ChessPiece captured_piece = chess_match.performChessMovie(source, target);
+				
+				if(captured_piece != null) {
+					captured.add(captured_piece);
+				}
 			}
 			catch (ChessException e) {
 				displayMessageChessException(scanner, e);
