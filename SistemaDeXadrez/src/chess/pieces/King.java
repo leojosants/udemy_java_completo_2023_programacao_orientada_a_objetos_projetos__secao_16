@@ -105,7 +105,7 @@ public class King extends ChessPiece {
 			}
 
 			/* special move castling queen side rook */
-			Position posT_2 = new Position(position.getRow(), position.getColumn() + 4);
+			Position posT_2 = new Position(position.getRow(), position.getColumn() - 4);
 			if (testRockCastling(posT_2)) {
 				Position p_1 = new Position(position.getRow(), position.getColumn() - 1);
 				Position p_2 = new Position(position.getRow(), position.getColumn() - 2);
