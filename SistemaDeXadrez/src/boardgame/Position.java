@@ -9,13 +9,13 @@ public class Position {
 
 	/* -------------------- constructors section -------------------- */
 	public Position(int row, int column) {
-		this.setRow(row);
-		this.setColumn(column);
+		this.row = row;
+		this.column = column;
 	}
 
 	/* -------------------- getters and setters section -------------------- */
 	public int getRow() {
-		return this.row;
+		return row;
 	}
 
 	public void setRow(int row) {
@@ -23,7 +23,7 @@ public class Position {
 	}
 
 	public int getColumn() {
-		return this.column;
+		return column;
 	}
 
 	public void setColumn(int column) {
@@ -32,12 +32,12 @@ public class Position {
 
 	/* -------------------- methods section -------------------- */
 	public void setValues(int row, int column) {
-		this.setRow(row);
-		this.setColumn(column);
+		this.row = row;
+		this.column = column;
 	}
 
 	@Override
 	public String toString() {
-		return String.format("%d, %d", this.getRow(), this.getColumn());
+		return row + ", " + column;
 	}
 }

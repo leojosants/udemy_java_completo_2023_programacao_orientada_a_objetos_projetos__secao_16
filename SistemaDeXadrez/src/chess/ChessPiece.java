@@ -11,42 +11,38 @@ public abstract class ChessPiece extends Piece {
 
 	/* -------------------- attributes section -------------------- */
 	private Color color;
-	private int movie_count;
+	private int moveCount;
 
 	/* -------------------- constructors section -------------------- */
 	public ChessPiece(Board board, Color color) {
 		super(board);
-		this.setColor(color);
+		this.color = color;
 	}
 
 	/* -------------------- getters and setters section -------------------- */
 	public Color getColor() {
-		return this.color;
+		return color;
 	}
 
-	private void setColor(Color color) {
-		this.color = color;
-	}
-	
-	public int getMovieCount() {
-		return this.movie_count;
+	public int getMoveCount() {
+		return moveCount;
 	}
 
 	/* -------------------- methods section -------------------- */
 	public void increaseMoveCount() {
-		this.movie_count++;
+		moveCount++;
 	}
-	
+
 	public void decreaseMoveCount() {
-		this.movie_count--;
+		moveCount--;
 	}
-	
+
 	public ChessPosition getChessPosition() {
 		return ChessPosition.fromPosition(position);
 	}
-	
+
 	protected boolean isThereOpponentPiece(Position position) {
-		ChessPiece p = (ChessPiece) this.getBoard().piece(position);
-		return ((p != null) && (p.getColor() != this.getColor()));
+		ChessPiece p = (ChessPiece) getBoard().piece(position);
+		return p != null && p.getColor() != color;
 	}
 }

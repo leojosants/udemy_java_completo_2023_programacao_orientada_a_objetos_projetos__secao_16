@@ -8,30 +8,27 @@ public abstract class Piece {
 
 	/* -------------------- constructors section -------------------- */
 	public Piece(Board board) {
-		this.setBoard(board);
-		this.position = null;
+		this.board = board;
+		position = null;
 	}
 
+	/* -------------------- getters and setters section -------------------- */
 	protected Board getBoard() {
 		return board;
-	}
-
-	private void setBoard(Board board) {
-		this.board = board;
 	}
 
 	/* -------------------- methods section -------------------- */
 	public abstract boolean[][] possibleMoves();
 
 	public boolean possibleMove(Position position) {
-		return this.possibleMoves()[position.getRow()][position.getColumn()];
+		return possibleMoves()[position.getRow()][position.getColumn()];
 	}
-	
+
 	public boolean isThereAnyPossibleMove() {
-		boolean[][] matriz = possibleMoves();
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz.length; j++) {
-				if(matriz[i][j]) {
+		boolean[][] mat = possibleMoves();
+		for (int i = 0; i < mat.length; i++) {
+			for (int j = 0; j < mat.length; j++) {
+				if (mat[i][j]) {
 					return true;
 				}
 			}

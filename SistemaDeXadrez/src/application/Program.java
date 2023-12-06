@@ -57,7 +57,7 @@ public class Program {
 				System.out.print("Target: ");
 				ChessPosition target = UI.readChessPosition(scanner);
 
-				ChessPiece captured_piece = chess_match.performChessMovie(source, target);
+				ChessPiece captured_piece = chess_match.performChessMove(source, target);
 				
 				if (captured_piece != null) {
 					captured.add(captured_piece);
