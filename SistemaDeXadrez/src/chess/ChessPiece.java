@@ -32,19 +32,13 @@ public abstract class ChessPiece extends Piece {
 		return this.movie_count;
 	}
 
-	private void setMovieCount(int movie_count) {
-		this.movie_count = movie_count;
-	}
-
 	/* -------------------- methods section -------------------- */
 	public void increaseMoveCount() {
-//		this.movie_count++;
-		this.setMovieCount(this.getMovieCount() + 1);
+		this.movie_count++;
 	}
 	
 	public void decreaseMoveCount() {
-//		this.movie_count--;
-		this.setMovieCount(this.getMovieCount() - 1);
+		this.movie_count--;
 	}
 	
 	public ChessPosition getChessPosition() {

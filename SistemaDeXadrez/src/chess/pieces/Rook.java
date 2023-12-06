@@ -7,6 +7,7 @@ import boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
 
+/* -------------------- Rook class -------------------- */
 public class Rook extends ChessPiece {
 
 	/* -------------------- constructors section -------------------- */
@@ -23,63 +24,54 @@ public class Rook extends ChessPiece {
 	@Override
 	public boolean[][] possibleMoves() {
 		boolean[][] matriz = new boolean[this.getBoard().getRows()][this.getBoard().getColumns()];
-
-		Position p = new Position(0, 0);
+		Position position = new Position(0, 0);
 
 		/*
 		 * above
 		 */
-		p.setValues((this.position.getRow() - 1), position.getColumn());
-
-		while ((this.getBoard().positionExists(p)) && (!this.getBoard().theresIsAPiece(p))) {
-			matriz[p.getRow()][p.getColumn()] = true;
-			p.setRow(p.getRow() - 1);
+		position.setValues((this.position.getRow() - 1), position.getColumn());
+		while ((this.getBoard().positionExists(position)) && (!this.getBoard().theresIsAPiece(position))) {
+			matriz[position.getRow()][position.getColumn()] = true;
+			position.setRow(position.getRow() - 1);
 		}
-
-		if ((this.getBoard().positionExists(p)) && (this.isThereOpponentPiece(p))) {
-			matriz[p.getRow()][p.getColumn()] = true;
+		if ((this.getBoard().positionExists(position)) && (this.isThereOpponentPiece(position))) {
+			matriz[position.getRow()][position.getColumn()] = true;
 		}
 
 		/*
 		 * left
 		 */
-		p.setValues(this.position.getRow(), (position.getColumn() - 1));
-
-		while ((this.getBoard().positionExists(p)) && (!this.getBoard().theresIsAPiece(p))) {
-			matriz[p.getRow()][p.getColumn()] = true;
-			p.setColumn(p.getColumn() - 1);
+		position.setValues(this.position.getRow(), (position.getColumn() - 1));
+		while ((this.getBoard().positionExists(position)) && (!this.getBoard().theresIsAPiece(position))) {
+			matriz[position.getRow()][position.getColumn()] = true;
+			position.setColumn(position.getColumn() - 1);
 		}
-
-		if ((this.getBoard().positionExists(p)) && (this.isThereOpponentPiece(p))) {
-			matriz[p.getRow()][p.getColumn()] = true;
+		if ((this.getBoard().positionExists(position)) && (this.isThereOpponentPiece(position))) {
+			matriz[position.getRow()][position.getColumn()] = true;
 		}
 
 		/*
 		 * right
 		 */
-		p.setValues(this.position.getRow(), (position.getColumn() + 1));
-
-		while ((this.getBoard().positionExists(p)) && (!this.getBoard().theresIsAPiece(p))) {
-			matriz[p.getRow()][p.getColumn()] = true;
-			p.setColumn(p.getColumn() + 1);
+		position.setValues(this.position.getRow(), (position.getColumn() + 1));
+		while ((this.getBoard().positionExists(position)) && (!this.getBoard().theresIsAPiece(position))) {
+			matriz[position.getRow()][position.getColumn()] = true;
+			position.setColumn(position.getColumn() + 1);
 		}
-
-		if ((this.getBoard().positionExists(p)) && (this.isThereOpponentPiece(p))) {
-			matriz[p.getRow()][p.getColumn()] = true;
+		if ((this.getBoard().positionExists(position)) && (this.isThereOpponentPiece(position))) {
+			matriz[position.getRow()][position.getColumn()] = true;
 		}
 
 		/*
 		 * below
 		 */
-		p.setValues((this.position.getRow() + 1), position.getColumn());
-
-		while ((this.getBoard().positionExists(p)) && (!this.getBoard().theresIsAPiece(p))) {
-			matriz[p.getRow()][p.getColumn()] = true;
-			p.setRow(p.getRow() + 1);
+		position.setValues((this.position.getRow() + 1), position.getColumn());
+		while ((this.getBoard().positionExists(position)) && (!this.getBoard().theresIsAPiece(position))) {
+			matriz[position.getRow()][position.getColumn()] = true;
+			position.setRow(position.getRow() + 1);
 		}
-
-		if ((this.getBoard().positionExists(p)) && (this.isThereOpponentPiece(p))) {
-			matriz[p.getRow()][p.getColumn()] = true;
+		if ((this.getBoard().positionExists(position)) && (this.isThereOpponentPiece(position))) {
+			matriz[position.getRow()][position.getColumn()] = true;
 		}
 
 		return matriz;
