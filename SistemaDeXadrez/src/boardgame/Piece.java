@@ -1,7 +1,9 @@
 /* -------------------- packages section -------------------- */
 package boardgame;
 
+/* -------------------- Piece class -------------------- */
 public abstract class Piece {
+	
 	/* -------------------- attributes section -------------------- */
 	protected Position position;
 	private Board board;
@@ -25,10 +27,11 @@ public abstract class Piece {
 	}
 
 	public boolean isThereAnyPossibleMove() {
-		boolean[][] mat = possibleMoves();
-		for (int i = 0; i < mat.length; i++) {
-			for (int j = 0; j < mat.length; j++) {
-				if (mat[i][j]) {
+		boolean[][] matrix = possibleMoves();
+		
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix.length; j++) {
+				if (matrix[i][j]) {
 					return true;
 				}
 			}

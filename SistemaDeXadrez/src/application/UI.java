@@ -56,6 +56,7 @@ public class UI {
 		printBoard(chess_match.getPieces());
 		System.out.println();
 		printCapturedPieces(captured);
+		
 		System.out.println();
 		System.out.printf("Turn: %d%n", chess_match.getTurn());
 		
@@ -74,6 +75,7 @@ public class UI {
 
 	public static void printBoard(ChessPiece[][] pieces) {
 		System.out.println();
+		
 		for (int i = 0; i < pieces.length; i++) {
 			System.out.printf("%d ", (8 - i));
 
@@ -89,6 +91,7 @@ public class UI {
 
 	public static void printBoard(ChessPiece[][] pieces, boolean[][] possible_moves) {
 		System.out.println();
+		
 		for (int i = 0; i < pieces.length; i++) {
 			System.out.printf("%d ", (8 - i));
 
@@ -118,6 +121,7 @@ public class UI {
 				System.out.print(ANSI_YELLOW + piece + ANSI_RESET);
 			}
 		}
+		
 		System.out.print(" ");
 	}
 

@@ -11,7 +11,7 @@ public abstract class ChessPiece extends Piece {
 
 	/* -------------------- attributes section -------------------- */
 	private Color color;
-	private int moveCount;
+	private int move_count;
 
 	/* -------------------- constructors section -------------------- */
 	public ChessPiece(Board board, Color color) {
@@ -25,16 +25,16 @@ public abstract class ChessPiece extends Piece {
 	}
 
 	public int getMoveCount() {
-		return moveCount;
+		return move_count;
 	}
 
 	/* -------------------- methods section -------------------- */
 	public void increaseMoveCount() {
-		moveCount++;
+		move_count++;
 	}
 
 	public void decreaseMoveCount() {
-		moveCount--;
+		move_count--;
 	}
 
 	public ChessPosition getChessPosition() {

@@ -50,6 +50,7 @@ public class Program {
 				ChessPosition source = UI.readChessPosition(scanner);
 
 				boolean[][] possible_moves = chess_match.possibleMoves(source);
+				
 				UI.clearScreen();
 				UI.printBoard(chess_match.getPieces(), possible_moves);
 				
@@ -81,9 +82,11 @@ public class Program {
 			catch (InputMismatchException e) {
 				displayMessageInputMismatchException(scanner, e);
 			}
+			finally {				
+				UI.clearScreen();
+				UI.printMatch(chess_match, captured);
+			}
 		}
 		
-		UI.clearScreen();
-		UI.printMatch(chess_match, captured);
 	}
 }

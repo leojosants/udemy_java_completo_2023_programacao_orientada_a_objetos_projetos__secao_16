@@ -1,6 +1,7 @@
 /* -------------------- packages section -------------------- */
 package boardgame;
 
+/* -------------------- Position class -------------------- */
 public class Position {
 
 	/* -------------------- attributes section -------------------- */
